@@ -1,0 +1,75 @@
+#Kullanılan Kütüphaneler
+import tkinter as tk 
+
+#Pencere İçin
+form = tk.Tk()
+form.title("Hesap Makinesi")
+form.geometry("300x200")
+
+#Kullanıcıdan Alınan değerler ile işlme yapmak için
+sayı = tk.StringVar()
+sayı3 = tk.StringVar()
+
+#Yazı ve Kullanıcıdan değer alınması için;
+yazı = tk.Label(form,text="Lütfen Bir Sayı Giriniz.").pack()
+sayı1 = tk.Entry(form,textvariable=sayı).pack()
+yazı2 = tk.Label(form,text="Lütfen İkinci Bir Sayı Giriniz.").pack()
+sayı2 = tk.Entry(form,textvariable=sayı3).pack()
+
+
+#Toplama Butonu İçin;
+def topla():
+        rakam = int(sayı.get())
+        rakam2 = int(sayı3.get())
+        sonuc = (rakam + rakam2)
+        yazı3 = tk.Label(form,text=sonuc ,font="10")
+        yazı3.place(x=55,y=150)
+
+        sonuc1 = tk.Label(form,text="Sonuç: ",font="10")
+        sonuc1.place(x=0,y=150)
+
+#Çıkarma Butonu İçin ;
+def cıkar():
+        rakam = int(sayı.get())
+        rakam2 = int(sayı3.get())
+        sonuc = (rakam - rakam2)
+        yazı3 = tk.Label(form,text=sonuc ,font="10")
+        yazı3.place(x=55,y=150)
+
+        sonuc1 = tk.Label(form,text="Sonuç: ",font="10")
+        sonuc1.place(x=0,y=150)
+
+#Çarpma İşlemi İçin;
+def carp():
+        rakam = int(sayı.get())
+        rakam2 = int(sayı3.get())
+        sonuc = (rakam * rakam2)
+        yazı3 = tk.Label(form,text=sonuc ,font="10")
+        yazı3.place(x=55,y=150)
+
+        sonuc1 = tk.Label(form,text="Sonuç: ",font="10")
+        sonuc1.place(x=0,y=150)
+
+#Bölme İşlmi İçin;
+def böl():
+        rakam = int(sayı.get())
+        rakam2 = int(sayı3.get())
+        sonuc = (rakam / rakam2)
+        yazı3 = tk.Label(form,text=sonuc ,font="10")
+        yazı3.place(x=55,y=150)
+
+        sonuc1 = tk.Label(form,text="Sonuç: ",font="10")
+        sonuc1.place(x=0,y=150)
+
+#Buttonlar
+bölme = tk.Button(form,text="Bölme",command=böl)
+bölme.place(x=0,y=100)
+carpma = tk.Button(form,text="Çarpma",command=carp)
+carpma.place(x=50,y=100)
+cıkarma = tk.Button(form,text="Çıkarma",command=cıkar)
+cıkarma.place(x=110,y=100)
+toplama = tk.Button(form,text="toplama",command=topla)
+toplama.place(x=170,y=100)
+
+#Pencerenin Açık Kalması İçin;
+form.mainloop()
